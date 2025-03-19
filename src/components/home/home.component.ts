@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { MenuComponent } from '../menu/menu.component';
+import { FooterComponent } from '../footer/footer.component';
+import { SignupComponent } from '../signup/signup.component';
 @Component({
   selector: 'app-home',
-  imports: [LoginComponent],
+  imports: [SignupComponent,MenuComponent,FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -3,16 +3,19 @@ import { FormsModule } from '@angular/forms';
 import { SendUserService } from '../../services/SendUserService';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone : true,
   imports: [FormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
 })
-export class LoginComponent {
+export class SignupComponent {
   data = {
+    name :'',
     email : '',
+    phone:'1224455',
     password : '',
+    role:'client'
   }
 
   constructor(private readonly apiService: SendUserService){}
@@ -30,4 +33,5 @@ export class LoginComponent {
       })
     }
   }
+
 }
