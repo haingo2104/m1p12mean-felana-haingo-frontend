@@ -6,6 +6,7 @@ import { LoginComponent } from '../components/login/login.component';
 import { SidebarComponent } from '../components/backOffice/sidebar/sidebar.component';
 import { MecanicienComponent } from '../components/backOffice/mecanicien/mecanicien.component';
 import { DashboardComponent } from '../components/backOffice/dashboard/dashboard.component';
+import { AppointmentComponent } from '../components/appointment/appointment.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path : 'login' , component : LoginComponent},
     {path : 'sidebar' , component : SidebarComponent},
     {path : 'mecanicien' , component : MecanicienComponent},
-    {path : 'dashboard' , component : DashboardComponent}
+    {path : 'dashboard' , component : DashboardComponent},
+    {path : 'appointment' , component : AppointmentComponent}
 ];

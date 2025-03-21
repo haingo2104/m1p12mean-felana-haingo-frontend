@@ -1,0 +1,71 @@
+body {
+  font-size: 20px;
+}
+.calendar-card {
+  width: 50%;
+  margin-bottom: 20px;
+}
+h1 {
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 5px;
+  font-size: 30px;
+}
+.time-card {
+  width: 50%;
+  margin-bottom: 20px;
+}
+.appointment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.calendar-time {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected-date,
+.selected-time {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.inputs-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inputs-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .appointment-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calendar-time,
+  .inputs-container {
+    width: 80%;
+  }
+}
+
+  
