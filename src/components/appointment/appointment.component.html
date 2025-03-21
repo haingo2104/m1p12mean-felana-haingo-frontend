@@ -1,0 +1,37 @@
+<h1 class="text-center">Planifiez votre rendez-vous</h1>
+<div class="appointment-container d-flex">
+  <div class="calendar-time">
+    <mat-card class="calendar-card">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+
+    <mat-form-field class="time-card">
+      <input
+        matInput
+        [matTimepicker]="picker"
+        placeholder="Choose a time"
+        [(ngModel)]="selectedTime"
+        readonly
+      />
+      <mat-timepicker #picker></mat-timepicker>
+      <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
+    </mat-form-field>
+
+  </div>
+
+  <div class="inputs-container">
+    <label for="date">Date :</label>
+    <input
+      id="date"
+      type="text"
+      class="form-control w-75"
+      [value]="selected | date : 'dd/MM/yyyy'"
+      disabled
+    />
+
+    <label for="time">Heure :</label>
+    <input id="time" type="text" class="form-control w-75" [value]="selectedTime | date: 'hh:mm a'" disabled />
+
+    <button class="btn btn-primary w-75" (click)="onSubmit()">Soumettre</button>
+  </div>
+</div>
