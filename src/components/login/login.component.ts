@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SendUserService } from '../../services/SendUserService';
+import { AuthentificationService } from '../../services/AuthentificationService';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +15,10 @@ export class LoginComponent {
     password : '',
   }
 
-  constructor(private readonly apiService: SendUserService){}
+  constructor(private readonly apiService: AuthentificationService){}
   onSubmit(){
     if(this.data) {
-      this.apiService.sendData({ data: this.data}).subscribe({
+      this.apiService.login({ data: this.data}).subscribe({
         next: (response) => {
           console.log("Réponse de l'API:", response);
         },

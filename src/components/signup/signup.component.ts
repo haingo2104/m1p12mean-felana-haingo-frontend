@@ -15,7 +15,7 @@ export class SignupComponent {
     email : '',
     phone:'1224455',
     password : '',
-    role:'client'
+    role:'manager'
   }
 
   constructor(private readonly apiService: SendUserService){}

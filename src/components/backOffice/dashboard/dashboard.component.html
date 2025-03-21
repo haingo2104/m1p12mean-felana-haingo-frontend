@@ -1,0 +1,15 @@
+<div class="d-flex vh-100">
+  <!-- Sidebar à gauche -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Section principale contenant le header et le contenu dynamique -->
+  <div class="d-flex flex-column flex-grow-1">
+    <!-- Header toujours visible en haut à droite -->
+    <app-header></app-header>
+
+    <!-- Contenu dynamique sous le header -->
+    <div class="flex-grow-1 p-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

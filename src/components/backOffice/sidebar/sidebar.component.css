@@ -1,0 +1,42 @@
+/* Largeur normale du sidebar */
+.sidebar {
+  width: 250px;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Largeur réduite lorsqu'il est replié */
+}
+
+.sidebar .header-logo {
+  max-width: 100%; /* Ajuste la taille de l'image */
+}
+
+.sidebar.collapsed .header-logo {
+  display: none; /* Cache le logo en mode réduit */
+}
+
+.nav-link {
+  white-space: nowrap; /* Empêche la coupure des textes */
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 30px; /* Garde l'icône alignée */
+  text-align: center;
+}
+
+.menu-text {
+  margin-left: 10px; /* Ajout d'espace entre l'icône et le texte */
+}
+
+/* Réduire le texte quand le sidebar est replié */
+.sidebar.collapsed .menu-text {
+  display: none; /* Cache le texte des menus en mode réduit */
+}
+
+.header-logo {
+  width: 80px;
+  height: auto;
+}

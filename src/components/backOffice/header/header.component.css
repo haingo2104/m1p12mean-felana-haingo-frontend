@@ -1,0 +1,23 @@
+/* Style pour la barre de recherche compacte */
+.search-bar {
+  width: 150px; /* Largeur compacte sur petits écrans */
+}
+.container{
+  text-align: end !important;
+}
+
+@media (min-width: 768px) {
+  .search-bar {
+    width: 300px; /* Barre plus large sur écrans moyens et grands */
+  }
+}
+
+/* Rond pour l'icône de profil */
+img.rounded-circle {
+  /* border: 2px solid white; */
+}
+
+/* Ajuste l'alignement entre la barre de recherche et l'icône de profil */
+.dropdown {
+  margin-left: auto; /* Aligne à droite */
+}
