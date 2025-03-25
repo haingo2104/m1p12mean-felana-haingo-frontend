@@ -63,5 +63,43 @@
     }
 
     <button class="btn btn-primary w-75" (click)="onSubmit()">Soumettre</button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <!-- Toast de Succès -->
+      <div
+        id="liveToastSuccess"
+        class="toast align-items-center text-bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Succès</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+          Rendez-vous confirmé pour le
+          {{ selected | date : "dd/MM/yyyy" }} à
+          {{ selectedTime | date : "HH:mm" }}
+        </div>
+      </div>
+    
+      <!-- Toast d'Erreur -->
+      <div
+        id="liveToastError"
+        class="toast text-bg-danger"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Erreur</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+          Erreur lors de la création du rendez-vous. Veuillez réessayer.
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>

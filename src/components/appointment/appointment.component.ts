@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppointmentServiceService } from '../../services/appointment-service.service';
 import { VehicleServiceService } from '../../services/vehicle-service.service';
+import { Toast } from 'bootstrap';
 
 @Component({
   selector: 'app-appointment',
@@ -34,6 +35,9 @@ export class AppointmentComponent {
   vehicles: any[] = [];
   newVehicleModel: string = '';
   clientId = localStorage.getItem('userId');
+
+  confirmedDate: Date | null = null;
+  confirmedTime: Date | null = null;
 
   constructor(
     private readonly appointmentService: AppointmentServiceService,
@@ -63,7 +67,7 @@ export class AppointmentComponent {
         .createVehicle(clientId, this.newVehicleModel)
         .subscribe({
           next: (response) => {
-            console.log('Véhicule créé:', response); 
+            console.log('Véhicule créé:', response);
             const newVehicle = response.vehicle;
             vehicleId = newVehicle._id;
             this.createAppointment(clientId, vehicleId as string, date, time);
@@ -96,17 +100,29 @@ export class AppointmentComponent {
       time.getSeconds()
     );
 
-    const formattedDate = appointmentDate.toISOString(); // Conversion en format ISO 8601
+    const formattedDate = appointmentDate.toISOString();
 
     this.appointmentService
       .createAppointment(clientId, vehicleId, formattedDate)
       .subscribe({
-        next: (response : any) => {
+        next: (response: any) => {
           console.log('Rendez-vous créé avec succès', response);
+          this.confirmedDate = appointmentDate;
+          this.showToast(true);
         },
-        error: (error : any) => {
+        error: (error: any) => {
           console.error('Erreur lors de la création du rendez-vous', error);
+          this.showToast(false);
         },
       });
   }
+  showToast(isSuccess: boolean) {
+    const toastId = isSuccess ? 'liveToastSuccess' : 'liveToastError';
+    const toastElement = document.getElementById(toastId);
+    if (toastElement) {
+      const toast = new Toast(toastElement);
+      toast.show();
+    }
+  }
+  
 }
