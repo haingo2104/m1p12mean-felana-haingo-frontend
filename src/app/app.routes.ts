@@ -10,7 +10,7 @@ import { AppointmentComponent } from '../components/appointment/appointment.comp
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
-    {path : 'home' , component : HomeComponent},
+    {path : '' , component : HomeComponent},
     {path : 'contact' , component : ContactComponent}, 
     {path : 'login' , component : LoginComponent},
     {path : 'sidebar' , component : SidebarComponent},
