@@ -16,7 +16,6 @@
       <mat-timepicker #picker></mat-timepicker>
       <mat-timepicker-toggle matSuffix [for]="picker"></mat-timepicker-toggle>
     </mat-form-field>
-
   </div>
 
   <div class="inputs-container">
@@ -30,7 +29,38 @@
     />
 
     <label for="time">Heure :</label>
-    <input id="time" type="text" class="form-control w-75" [value]="selectedTime | date: 'hh:mm a'" disabled />
+    <input
+      id="time"
+      type="text"
+      class="form-control w-75"
+      [value]="selectedTime | date : 'hh:mm a'"
+      disabled
+    />
+
+    <label for="vehicle">Véhicule :</label>
+    <select
+      id="vehicle"
+      class="form-control w-75"
+      [(ngModel)]="selectedVehicleId"
+    >
+      @for (vehicle of vehicles; track $index) {
+      <option [value]="vehicle._id">{{ vehicle.model }}</option>
+      }
+      <option value="new">Ajouter un nouveau véhicule</option>
+    </select>
+
+    @if (selectedVehicleId === 'new') {
+    <div>
+      <label for="newVehicleModel">Modèle du véhicule :</label>
+      <input
+        id="newVehicleModel"
+        type="text"
+        class="form-control w-75"
+        [(ngModel)]="newVehicleModel"
+        placeholder="Entrez le modèle"
+      />
+    </div>
+    }
 
     <button class="btn btn-primary w-75" (click)="onSubmit()">Soumettre</button>
   </div>
