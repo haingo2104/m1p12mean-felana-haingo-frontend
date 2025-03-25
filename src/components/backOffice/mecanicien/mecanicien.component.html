@@ -10,7 +10,6 @@
   <table class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
-        <th>ID</th>
         <th>Nom</th>
         <th>Email</th>
         <th>Téléphone</th>
@@ -20,12 +19,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let mecanicien of mecaniciens">
+        <td>{{ mecanicien.name }}</td>
+        <td>{{ mecanicien.email }}</td>
+        <td>{{ mecanicien.phone }}</td>
+        <td>{{ mecanicien.specialty }}</td>
         <!-- <td>
           <span class="badge" [ngClass]="mecanicien.actif ? 'bg-success' : 'bg-danger'">
             {# {{ mecanicien.actif ? 'Actif' : 'Inactif' }} #}
@@ -69,7 +67,7 @@
         
           <div class="mb-3">
             <label for="specialite" class="form-label">Spécialité</label>
-            <input type="text" id="specialite" class="form-control" [(ngModel)]="data.specialty" name="specialty" required />
+            <input type="text" id="specialite" class="form-control" [(ngModel)]="data.speciality" name="speciality" required />
           </div>
           <!-- <div class="mb-3">
             <label for="statut" class="form-label">Statut</label>
@@ -85,6 +83,20 @@
         </form>
         
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast de succès Bootstrap -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Succès</strong>
+      <small>A l'instant</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fermer"></button>
+    </div>
+    <div class="toast-body">
+      Mécanicien ajouté avec succès !
     </div>
   </div>
 </div>
