@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthentificationService {
   private readonly apiUrl = 'http://localhost:5000/auth/login';
-  constructor(private readonly http: HttpClient, private router: Router) {}
+  constructor(private readonly http: HttpClient, private readonly router: Router) {}
 
   // Méthode de connexion
   login(data: any): Observable<any> {
@@ -20,6 +20,7 @@ export class AuthentificationService {
           // Stocker le token et le rôle dans localStorage
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.user.role.name);
+          localStorage.setItem('userId', response.userId);
 
           // Rediriger l'utilisateur selon son rôle
           this.router.navigate([response.redirectTo]);
