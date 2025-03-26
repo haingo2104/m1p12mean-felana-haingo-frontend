@@ -1,0 +1,13 @@
+<div id="appointment-list">
+  <ul>
+    @for (appointment of appointments; track $index) {
+    <li>
+        <div>{{ appointment.vehicleId.model }}</div>
+        <div>
+            <button class="btn btn-success mx-5">Accepter</button>
+            <button class="btn btn-danger">Refuser</button>
+        </div>
+    </li>
+    }
+  </ul>
+</div>

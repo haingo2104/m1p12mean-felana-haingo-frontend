@@ -7,6 +7,7 @@ import { SidebarComponent } from '../components/backOffice/sidebar/sidebar.compo
 import { MecanicienComponent } from '../components/backOffice/mecanicien/mecanicien.component';
 import { DashboardComponent } from '../components/backOffice/dashboard/dashboard.component';
 import { AppointmentComponent } from '../components/appointment/appointment.component';
+import { AppointmentListComponent } from '../components/backOffice/appointment-list/appointment-list.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path : 'sidebar' , component : SidebarComponent},
     {path : 'mecanicien' , component : MecanicienComponent},
     {path : 'dashboard' , component : DashboardComponent},
-    {path : 'appointment' , component : AppointmentComponent}
+    {path : 'appointment' , component : AppointmentComponent},
+    {path : 'list-appointment' , component : AppointmentListComponent}
 ];
