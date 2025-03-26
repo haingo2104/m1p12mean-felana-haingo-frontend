@@ -1,15 +1,22 @@
-#appointment-list{
-    list-style-type: none;
+#appointment-list {
+  list-style-type: none;
 }
-#appointment-list li{
-    background-color: #fff;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    flex-direction: row; 
+#appointment-list li {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  cursor: pointer;
+  flex-direction: row;
+  list-style-type: none;
+
 }
+.content {
+  display: flex;
+}
+.content-button {
+  margin-left: auto;
+}
+
