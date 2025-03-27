@@ -1,0 +1,9 @@
+  @if (appointmentDetails) {
+    <div class="appointmentDetail">
+        <p><strong>Nom du client : {{ appointmentDetails?.clientId.name }}</strong></p>
+        <p><strong>Email : {{ appointmentDetails?.clientId.email }}</strong></p>
+        <p><strong>Modèle du voiture : {{ appointmentDetails?.vehicleId.model }}</strong></p>
+        <p><strong>Date du rendez-vous : {{ appointmentDetails?.date}}</strong></p>
+        <p class="bg-warning"><strong>Status : {{ appointmentDetails?.status}}</strong></p>
+    </div>
+  }

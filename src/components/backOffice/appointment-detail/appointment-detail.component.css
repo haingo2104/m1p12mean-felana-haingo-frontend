@@ -1,0 +1,11 @@
+.appointmentDetail{
+    margin-top: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.bookDetails p {
+    margin: 5px 0;
+    font-size: 18px;
+}

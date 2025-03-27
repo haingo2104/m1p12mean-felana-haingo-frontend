@@ -8,8 +8,19 @@ import { Observable } from 'rxjs';
 export class AppointmentServiceService {
   private readonly apiUrl = 'http://localhost:5000/appointments';
   constructor(private readonly http: HttpClient) {}
-  createAppointment(clientId: string, vehicleId: string, date: string): Observable<any> {
+  createAppointment(
+    clientId: string,
+    vehicleId: string,
+    date: string
+  ): Observable<any> {
     const appointmentData = { clientId, vehicleId, date };
     return this.http.post<any>(this.apiUrl, appointmentData);
+  }
+
+  getAllAppointments(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+  fetchAppointmentDetail(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }
