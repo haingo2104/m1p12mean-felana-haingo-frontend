@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SendUserService } from '../../services/SendUserService';
-
+import { UsersServiceService } from '../../services/users-service.service';
 @Component({
   selector: 'app-signup',
   standalone : true,
@@ -18,7 +17,7 @@ export class SignupComponent {
     role:'manager'
   }
 
-  constructor(private readonly apiService: SendUserService){}
+  constructor(private readonly apiService: UsersServiceService){}
   onSubmit(){
     if(this.data) {
       this.apiService.sendData({ data: this.data}).subscribe({

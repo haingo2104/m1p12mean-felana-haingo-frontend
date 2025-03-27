@@ -15,27 +15,27 @@
         <th>Téléphone</th>
         <th>Spécialité</th>
         <!-- <th>Statut</th> -->
-        <!-- <th>Actions</th> -->
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let mecanicien of mecaniciens">
-        <td>{{ mecanicien.name }}</td>
-        <td>{{ mecanicien.email }}</td>
-        <td>{{ mecanicien.phone }}</td>
-        <td>{{ mecanicien.specialty }}</td>
-        <!-- <td>
-          <span class="badge" [ngClass]="mecanicien.actif ? 'bg-success' : 'bg-danger'">
-            {# {{ mecanicien.actif ? 'Actif' : 'Inactif' }} #}
-          </span>
-        </td>
-        <td>
-          <button class="btn btn-warning btn-sm me-2" (click)="editMecanicien(mecanicien.id)">Éditer</button>
-          <button class="btn btn-secondary btn-sm" (click)="toggleActivation(mecanicien.id)">
-            {# {{ mecanicien.actif ? 'Désactiver' : 'Activer' }} #}
+      
+        <tr *ngFor="let mecanicien of mecaniciens; let i = index">
+          <td>{{ mecanicien.name }}</td>
+          <td>{{ mecanicien.email }}</td>
+          <td>{{ mecanicien.phone }}</td>
+          <td>{{ mecanicien.specialty }}</td>
+          <td>
+            <button
+            [ngClass]="mecanicien.status === 'active' ? 'btn-success' : 'btn-warning'"
+            class="btn btn-sm"
+            (click)="openConfirmModal(mecanicien)"
+          >
+            {{ mecanicien.status === 'active' ? 'Désactiver' : 'Activer' }}
           </button>
-        </td> -->
-      </tr>
+          </td>
+        </tr>
+        
     </tbody>
   </table>
 </div>
@@ -96,7 +96,46 @@
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fermer"></button>
     </div>
     <div class="toast-body">
-      Mécanicien ajouté avec succès !
+      Opération effectué avec succès !
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de confirmation -->
+<div
+  class="modal fade"
+  id="confirmModal"
+  tabindex="-1"
+  aria-labelledby="confirmModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment {{ selectedMecanicien?.status === 'active' ? 'désactiver' : 'activer' }} ce mécanicien ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Annuler
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="toggleMecanicienStatus()"
+        >
+          Oui, {{ selectedMecanicien?.status === 'active' ? 'Désactiver' : 'Activer' }}
+        </button>
+      </div>
     </div>
   </div>
 </div>

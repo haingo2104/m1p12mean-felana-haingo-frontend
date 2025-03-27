@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthentificationService } from '../../services/AuthentificationService';
+import { AuthentificationServiceService } from '../../services/authentification-service.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
     password : '',
   }
 
-  constructor(private readonly apiService: AuthentificationService){}
+  constructor(private readonly apiService: AuthentificationServiceService){}
   onSubmit(){
     if(this.data) {
       this.apiService.login({ data: this.data}).subscribe({
