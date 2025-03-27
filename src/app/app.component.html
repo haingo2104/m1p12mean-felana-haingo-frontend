@@ -1,1 +1,16 @@
-<router-outlet />
+@if (showSidebar) {
+    <div class="d-flex vh-100">
+      <app-sidebar></app-sidebar>
+      <div class="d-flex flex-column flex-grow-1">
+        <app-header></app-header>
+        <div class="flex-grow-1 p-3">
+          <router-outlet/>
+        </div>
+      </div>
+    </div>
+    }
+@if (!showSidebar) {
+    <router-outlet />
+
+}
+    
