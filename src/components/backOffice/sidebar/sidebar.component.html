@@ -8,7 +8,7 @@
 
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a routerLink="/dashboard" class="nav-link text-white d-flex align-items-center">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link text-white d-flex align-items-center">
         <span class="menu-icon">📊</span>
         <span class="menu-text" *ngIf="!isCollapsed">Dashboard</span>
       </a>
@@ -22,30 +22,30 @@
       </a>
       <ul class="collapse" id="utilisateurMenu" *ngIf="!isCollapsed">
         <li class="nav-item">
-          <a href="/mecanicien" class="nav-link text-white ms-3">👨‍🔧 Mécanicien</a>
+          <a routerLink="/mecanicien" routerLinkActive="active" class="nav-link text-white ms-3">👨‍🔧 Mécanicien</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/client" class="nav-link text-white ms-3">👥 Client</a>
+          <a routerLink="/client" routerLinkActive="active" class="nav-link text-white ms-3">👥 Client</a>
         </li>
       </ul>
     </li>
 
     <li class="nav-item">
-      <a routerLink="/gerer-rendez-vous" class="nav-link text-white d-flex align-items-center">
+      <a routerLink="/gerer-rendez-vous" routerLinkActive="active" class="nav-link text-white d-flex align-items-center">
         <span class="menu-icon">📅</span>
         <span class="menu-text" *ngIf="!isCollapsed">Gérer Rendez-vous</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a routerLink="/generer-facture" class="nav-link text-white d-flex align-items-center">
+      <a routerLink="/generer-facture" routerLinkActive="active" class="nav-link text-white d-flex align-items-center">
         <span class="menu-icon">🧾</span>
         <span class="menu-text" *ngIf="!isCollapsed">Générer Facture</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a routerLink="/paiement" class="nav-link text-white d-flex align-items-center">
+      <a routerLink="/paiement" routerLinkActive="active" class="nav-link text-white d-flex align-items-center">
         <span class="menu-icon">💳</span>
         <span class="menu-text" *ngIf="!isCollapsed">Paiement</span>
       </a>
