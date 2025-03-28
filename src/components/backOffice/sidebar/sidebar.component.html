@@ -63,7 +63,7 @@
     <li class="nav-item">
       <a routerLink="/paiement" routerLinkActive="active" class="nav-link text-white d-flex align-items-center">
         <span class="menu-icon">💳</span>
-        @if (isCollapsed) {
+        @if (!isCollapsed) {
           <span class="menu-text">Paiement</span>
         }
       </a>
