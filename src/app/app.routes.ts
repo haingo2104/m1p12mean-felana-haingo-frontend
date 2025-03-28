@@ -8,9 +8,7 @@ import { MecanicienComponent } from '../components/backOffice/mecanicien/mecanic
 import { DashboardComponent } from '../components/backOffice/dashboard/dashboard.component';
 import { AppointmentComponent } from '../components/appointment/appointment.component';
 import { AppointmentListComponent } from '../components/backOffice/appointment-list/appointment-list.component';
-import { NavbarComponent } from '../components/frontOffice/navbar/navbar.component';
-import { SidebarClientComponent } from '../components/frontOffice/sidebar-client/sidebar-client.component';
-import { DashboardClientComponent } from '../components/frontOffice/dashboard-client/dashboard-client.component';
+
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -22,7 +20,4 @@ export const routes: Routes = [
     {path : 'dashboard' , component : DashboardComponent},
     {path : 'appointment' , component : AppointmentComponent},
     {path : 'list-appointment' , component : AppointmentListComponent},
-    {path : 'navbar' , component : NavbarComponent},
-    {path : 'sidebar-client' , component : SidebarClientComponent},
-    {path : 'dashboard-client' , component : DashboardClientComponent}
 ];

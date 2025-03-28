@@ -1,23 +1,34 @@
 <div id="appointment-list">
   <ul>
     @for (appointment of appointments; track $index) {
-    <li onKeyPress (click)="selectAppointment(appointment._id || '')">
-        <div class="content">
-            <div>{{ appointment.vehicleId.model }}</div>
-            <div class="content-button">
-                <button class="btn btn-success mx-5">Accepter</button>
-                <button class="btn btn-danger">Refuser</button>
-            </div>
-        </div>
-        
-        @if (selectedAppointmentId && selectedAppointmentId === appointment._id) {
-            <div>
+    <li (click)="selectAppointment(appointment._id || '')">
+      <div class="content">
+        <div>{{ appointment.vehicleId.model }}</div>
 
-                <app-appointment-detail class="details" [appointmentId]="selectedAppointmentId"></app-appointment-detail>
-            </div>
-        }
+        <div class="content-button">
+          @if (appointment.status === "confirmé") {
+          <span class="text-success">Rendez-vous accepté</span>
+          } @else {
+          <button
+            class="btn btn-success mx-5"
+            (click)="acceptAppointment(appointment._id)"
+          >
+            Accepter
+          </button>
+          <button class="btn btn-danger">Refuser</button>
+          }
+        </div>
+      </div>
+
+      @if (selectedAppointmentId && selectedAppointmentId === appointment._id) {
+      <div>
+        <app-appointment-detail
+          class="details"
+          [appointmentId]="selectedAppointmentId"
+        ></app-appointment-detail>
+      </div>
+      }
     </li>
-    }
+        }   
   </ul>
 </div>
-
