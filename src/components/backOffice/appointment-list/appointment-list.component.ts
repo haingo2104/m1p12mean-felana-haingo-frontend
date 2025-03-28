@@ -12,6 +12,7 @@ import { AppointmentDetailComponent } from '../appointment-detail/appointment-de
 export class AppointmentListComponent implements OnInit {
   appointments: any[] = [];
   selectedAppointmentId: string | null = null;
+  acceptedAppointments: string[] = [];
 
   constructor(
     private readonly appointmentService: AppointmentServiceService
@@ -35,4 +36,25 @@ export class AppointmentListComponent implements OnInit {
   
     console.log("Selected book ID:", this.selectedAppointmentId);
   }
+
+  acceptAppointment(appointmentId: string): void {
+    console.log('component',appointmentId);
+    if (!appointmentId) {
+      console.error('appointment et user non recupéré');
+      return;
+    }
+    
+    this.appointmentService.acceptAppointment(appointmentId).subscribe({
+      next: (response) => {
+        this.acceptedAppointments.push(appointmentId);
+        this.ngOnInit();
+        console.log("Réponse de l'API:", response);
+      },
+      error: (error) =>{
+        console.error('Erreur', error);
+      }
+    })
+  }
+
+
 }

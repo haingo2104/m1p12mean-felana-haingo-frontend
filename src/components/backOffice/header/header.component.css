@@ -1,4 +1,8 @@
 /* Style pour la barre de recherche compacte */
+.navbar {
+  background-color: #fff;
+  box-shadow: 10px 5px 5px #f7f7f7;
+}
 .search-bar {
   width: 150px; /* Largeur compacte sur petits écrans */
 }
@@ -12,10 +16,6 @@
   }
 }
 
-/* Rond pour l'icône de profil */
-img.rounded-circle {
-  /* border: 2px solid white; */
-}
 
 /* Ajuste l'alignement entre la barre de recherche et l'icône de profil */
 .dropdown {

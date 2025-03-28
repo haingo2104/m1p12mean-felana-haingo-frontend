@@ -23,4 +23,9 @@ export class AppointmentServiceService {
   fetchAppointmentDetail(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+  acceptAppointment(appointmentId: string): Observable<any> {
+    console.log('service',appointmentId)
+    const appointmentData = { appointmentId };
+    return this.http.post<any>(`${this.apiUrl}/accept`, appointmentData);
+  } 
 }

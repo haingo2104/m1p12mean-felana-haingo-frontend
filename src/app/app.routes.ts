@@ -9,6 +9,7 @@ import { DashboardComponent } from '../components/backOffice/dashboard/dashboard
 import { AppointmentComponent } from '../components/appointment/appointment.component';
 import { AppointmentListComponent } from '../components/backOffice/appointment-list/appointment-list.component';
 
+
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
     {path : '' , component : HomeComponent},
@@ -18,5 +19,5 @@ export const routes: Routes = [
     {path : 'mecanicien' , component : MecanicienComponent},
     {path : 'dashboard' , component : DashboardComponent},
     {path : 'appointment' , component : AppointmentComponent},
-    {path : 'list-appointment' , component : AppointmentListComponent}
+    {path : 'list-appointment' , component : AppointmentListComponent},
 ];
