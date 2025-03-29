@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        @for (date of unavailableDate; track $index) {
+            <li>📅 Date : {{ date | date:'dd/MM/yyyy' }} ⏰ Heure : {{ date | date:'HH:mm' }}</li>
+        }
+    </ul>
+</div>
+
+  

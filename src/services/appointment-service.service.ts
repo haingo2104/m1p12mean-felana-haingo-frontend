@@ -28,4 +28,8 @@ export class AppointmentServiceService {
     const appointmentData = { appointmentId };
     return this.http.post<any>(`${this.apiUrl}/accept`, appointmentData);
   } 
+  getUnavailableDate(): Observable<{ unavailableDates: string[] }> {
+    return this.http.get<{ unavailableDates: string[] }>(`${this.apiUrl}/unavailableDate`);
+  }
+  
 }

@@ -2,6 +2,9 @@
   text-align: center;
 
 }
+body{
+  font-size: 16px;
+}
 
 .stat-card {
   background: #f8f9fa;
@@ -22,4 +25,7 @@
 
 .chart-container {
   margin-top: 20px;
+}
+strong{
+  font-size: 24px;
 }
