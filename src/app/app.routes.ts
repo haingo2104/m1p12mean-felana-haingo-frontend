@@ -8,7 +8,8 @@ import { MecanicienComponent } from '../components/backOffice/mecanicien/mecanic
 import { DashboardComponent } from '../components/backOffice/dashboard/dashboard.component';
 import { AppointmentComponent } from '../components/appointment/appointment.component';
 import { AppointmentListComponent } from '../components/backOffice/appointment-list/appointment-list.component';
-
+import { ServiceConfigComponent } from '../components/backOffice/service-config/service-config.component';
+import { AddServiceComponent } from '../components/backOffice/add-service/add-service.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -20,4 +21,6 @@ export const routes: Routes = [
     {path : 'dashboard' , component : DashboardComponent},
     {path : 'appointment' , component : AppointmentComponent},
     {path : 'list-appointment' , component : AppointmentListComponent},
+    {path : 'services' , component : ServiceConfigComponent},
+    {path : 'add-service' , component : AddServiceComponent},
 ];
