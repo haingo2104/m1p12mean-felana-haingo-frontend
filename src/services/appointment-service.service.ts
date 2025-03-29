@@ -18,7 +18,7 @@ export class AppointmentServiceService {
   }
 
   getAllAppointments(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/allAppointments`);
   }
   fetchAppointmentDetail(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);

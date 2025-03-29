@@ -1,16 +1,25 @@
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-  }
-  
-  
-  /* Optionnel : vous pouvez ajouter un peu de padding au contenu */
-  .router-outlet {
-    padding: 20px;
-  }
-  
+.dashboard-container {
+  text-align: center;
+
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  color: #333;
+}
+
+.stat-card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.chart-container {
+  margin-top: 20px;
+}
