@@ -10,6 +10,7 @@ import { AppointmentComponent } from '../components/appointment/appointment.comp
 import { AppointmentListComponent } from '../components/backOffice/appointment-list/appointment-list.component';
 import { ServiceConfigComponent } from '../components/backOffice/service-config/service-config.component';
 import { AddServiceComponent } from '../components/backOffice/add-service/add-service.component';
+import { PlanningComponent } from '../components/backOffice/planning/planning.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -23,4 +24,5 @@ export const routes: Routes = [
     {path : 'list-appointment' , component : AppointmentListComponent},
     {path : 'services' , component : ServiceConfigComponent},
     {path : 'add-service' , component : AddServiceComponent},
+    {path : 'planning' , component : PlanningComponent},
 ];
