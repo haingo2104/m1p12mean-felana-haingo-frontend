@@ -11,9 +11,10 @@ export class AppointmentServiceService {
   createAppointment(
     clientId: string,
     vehicleId: string,
-    date: string
+    date: string,
+    description: string
   ): Observable<any> {
-    const appointmentData = { clientId, vehicleId, date };
+    const appointmentData = { clientId, vehicleId, date , description };
     return this.http.post<any>(this.apiUrl, appointmentData);
   }
 
