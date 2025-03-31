@@ -11,7 +11,13 @@ export class ServiceConfigService {
   createService(serviceData: FormData): Observable<any> {
     return this.http.post(`${this.apiUrl}/add`, serviceData);
   }
+  updateService(id: string,serviceData: FormData): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, serviceData);
+  }
   getAllServices(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+  deleteService(serviceId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${serviceId}`);
   }
 }
