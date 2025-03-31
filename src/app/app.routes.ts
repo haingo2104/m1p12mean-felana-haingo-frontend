@@ -11,6 +11,7 @@ import { AppointmentListComponent } from '../components/backOffice/appointment-l
 import { ServiceConfigComponent } from '../components/backOffice/service-config/service-config.component';
 import { AddServiceComponent } from '../components/backOffice/add-service/add-service.component';
 import { PlanningComponent } from '../components/backOffice/planning/planning.component';
+import { ServiceOfferComponent } from '../components/service-offer/service-offer.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -25,4 +26,5 @@ export const routes: Routes = [
     {path : 'services' , component : ServiceConfigComponent},
     {path : 'add-service' , component : AddServiceComponent},
     {path : 'planning' , component : PlanningComponent},
+    {path : 'serviceOffer' , component : ServiceOfferComponent},
 ];

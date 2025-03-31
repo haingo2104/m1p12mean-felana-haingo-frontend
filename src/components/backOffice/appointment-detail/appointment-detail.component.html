@@ -1,9 +1,56 @@
-  @if (appointmentDetails) {
-    <div class="appointmentDetail">
-        <p><strong>Nom du client : {{ appointmentDetails?.clientId.name }}</strong></p>
-        <p><strong>Email : {{ appointmentDetails?.clientId.email }}</strong></p>
-        <p><strong>Modèle du voiture : {{ appointmentDetails?.vehicleId.model }}</strong></p>
-        <p><strong>Date du rendez-vous : {{ appointmentDetails?.date}}</strong></p>
-        <p class="bg-warning"><strong>Status : {{ appointmentDetails?.status}}</strong></p>
+@if (appointmentDetails) {
+<h4>Détails du Rendez-vous</h4>
+<p>
+  <strong>Nom du client : </strong>{{ appointmentDetails?.clientId.name }}
+</p>
+<p>
+  <strong>Email :</strong> {{ appointmentDetails?.clientId.email }}
+</p>
+<p>
+  <strong>Modèle du voiture :</strong> {{ appointmentDetails?.vehicleId.model }}
+</p>
+<p>
+  <strong>Date du rendez-vous :</strong> {{ appointmentDetails?.date }}
+</p>
+<p class="bg-warning">
+  <strong>Status :</strong> {{ appointmentDetails?.status }}
+</p>
+
+@if (appointmentDetails?.status === 'confirmé') {
+  <div class="assign-mechanic">
+    <label for="mechanic">Attribuer un mécanicien :</label>
+    <select id="mechanic" class="form-select" [(ngModel)]="selectedMechanic">
+      @for (mecanicien of mecaniciens; track $index) {
+        <option [value]="mecanicien._id">
+          Nom : {{ mecanicien.name }} <strong>, Spécialité : {{ mecanicien.specialty }}</strong>
+        </option>
+      }
+      
+    </select>
+
+    <div class="mt-2">
+      <label for="repairCost">Coût de la réparation (Ariary) :</label>
+      <input type="number" id="repairCost" class="form-control" [(ngModel)]="repairCost" min="0">
     </div>
+
+    <button class="btn btn-primary mt-2" (click)="assignMechanic(appointmentDetails?._id)">
+      Assigner
+    </button>
+  </div>
   }
+
+}
+
+<!-- Toast de succès Bootstrap -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Succès</strong>
+      <small>A l'instant</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fermer"></button>
+    </div>
+    <div class="toast-body">
+      Mécanicien assigné avec succès !
+    </div>
+  </div>
+</div>
