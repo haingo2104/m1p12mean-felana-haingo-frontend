@@ -7,17 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class DashboardService {
   private apiUrl = 'http://localhost:5000';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // 📊 Récupérer la répartition des rendez-vous par statut
   getAppointmentsSummary(startDate: string, endDate: string) {
     const params = new HttpParams()
       .set('startDate', startDate)
       .set('endDate', endDate);
-  
+
     return this.http.get<any[]>(`${this.apiUrl}/appointments`, { params });
   }
-  
+
 
   // 📌 Récupérer le nombre de rendez-vous en attente
   getPendingAppointmentsCount(): Observable<{ pendingAppointmentsCount: number }> {
@@ -29,15 +29,19 @@ export class DashboardService {
     const params = new HttpParams()
       .set('startDate', startDate)
       .set('endDate', endDate);
+
+    return this.http.get<{ totalRepairs: number }>(`${this.apiUrl}/repairs/totalRepairs`, { params });
+  }
+
+  getRepairsSummary(startDate: string, endDate: string) {
+    const params = new HttpParams()
+      .set('startDate', startDate)
+      .set('endDate', endDate);
+
+    return this.http.get<{aFaire: number, enCours: number, termine: number }>(`${this.apiUrl}/repairs/summary`, { params });
+  }
+  getMechanicsWithCompletedRepairs(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/repairs/mechanic-repair-performance`);
+  }
   
-      return this.http.get<{ totalRepairs: number }>(`${this.apiUrl}/repairs/totalRepairs`, { params });
-    }
-  
-    getRepairsSummary(startDate: string, endDate: string) {
-      const params = new HttpParams()
-        .set('startDate', startDate)
-        .set('endDate', endDate);
-    
-        return this.http.get<{ enCours: number, termine: number }>(`${this.apiUrl}/repairs/summary`, { params });
-      }
 }

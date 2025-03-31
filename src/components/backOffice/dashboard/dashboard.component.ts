@@ -15,22 +15,60 @@ export class DashboardComponent implements OnInit {
     labels: ['Confirmé', 'Annulé', 'En attente'], 
     datasets: [{ 
       data: [0, 0, 0], 
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+      backgroundColor: ['#FF6384', 'green', '#FFCE56']
     }]
   };
   doughnutChartOptions: ChartOptions = { responsive: true };
   doughnutChartType: ChartType = 'doughnut'; // 📊 Ajout du type
 
   repairsStatusData: ChartData = {
-    labels: ['En cours', 'Terminé'],
+    labels: ['A faire','En cours', 'Terminé'],
     datasets: [{
       data: [0, 0],  // Initialisation des données à zéro
-      backgroundColor: ['#FF6384', '#36A2EB'],
+      backgroundColor: ['#D50D0D', '#201866' , '#FFCE56'],
     }]
   };
 
+  mechanicsRepairsData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [{
+      label: 'Réparations terminées',
+      data: [],
+      backgroundColor: '#36A2EB'
+    }]
+  };
+  
+  barChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: false,  // Supprime la grille verticale
+        },
+      },
+      y: {
+        grid: {
+          display: false, // Supprime la grille horizontale si nécessaire
+        },
+        ticks: {
+          stepSize: 1, // Affiche des valeurs entières
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false, // Cache la légende si inutile
+      },
+    },
+  };
+  
+  
+  
+  barChartType: ChartType = 'bar';
+
   doughnutChartOptionsRepairs: ChartOptions = { responsive: true };
-  doughnutChartTypeRepairs: ChartType = 'doughnut';
+  doughnutChartTypeRepairs: ChartType = 'pie';
 
   pendingAppointmentsCount = 0;
   totalRepairs = 0;
@@ -57,7 +95,7 @@ export class DashboardComponent implements OnInit {
           const counts = data.map(item => item.count);
     
           // Gérer les couleurs dynamiquement en fonction des statuts
-          const backgroundColors = ['#FF6384', '#36A2EB', '#FFCE56']; // Définir un tableau de couleurs statiques
+          const backgroundColors = ['#CEAC2D', '#115C5C', '#FFCE56']; // Définir un tableau de couleurs statiques
           const colors = backgroundColors.slice(0, data.length); // Utiliser les couleurs en fonction du nombre de statuts
     
           this.appointmentData = {
@@ -100,17 +138,37 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getRepairsSummary(startDate, endDate).subscribe({
       next: (data) => {
         console.log('Données pour réparations :', data);
-        // Vous pouvez accéder à enCours et termine ici
+    
         this.repairsStatusData = {
-          labels: ['En cours', 'Terminé'],
+          labels: ['À faire', 'En cours', 'Terminé'],  // ➕ Ajout de "À faire"
           datasets: [{
-            data: [data.enCours, data.termine], // Utilisation des données reçues
-            backgroundColor: ['#FF6384', '#36A2EB'],
+            data: [data.aFaire, data.enCours, data.termine], // ➕ Inclure "À faire"
+            backgroundColor: ['#D50D0D', '#201866', '#C4AE34'], // ➕ Nouvelle couleur pour "À faire"
           }]
         };
       },
       error: (error) => console.error('Erreur chargement réparations', error),
       complete: () => console.log('✅ Chargement des réparations terminé')
+    });
+    
+
+    this.dashboardService.getMechanicsWithCompletedRepairs().subscribe({
+      next: (data) => {
+        console.log('Données des réparations par mécanicien :', data);
+  
+        if (data && Array.isArray(data) && data.length > 0) {
+          this.mechanicsRepairsData = {
+            labels: data.map(m => m.name),
+            datasets: [{
+              label: 'Réparations terminées',
+              data: data.map(m => m.completedRepairs), // ✅ Arrondi à l'entier
+              backgroundColor: '#34C4C4'
+            }]
+          };
+        }
+      },
+      error: (error) => console.error('Erreur chargement réparations par mécanicien', error),
+      complete: () => console.log('✅ Chargement des réparations par mécanicien terminé')
     });
   
   }
