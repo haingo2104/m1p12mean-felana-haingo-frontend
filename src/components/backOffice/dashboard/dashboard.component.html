@@ -1,40 +1,43 @@
 <div class="dashboard-container">
-    <h2>Tableau de bord</h2>
-    <div class="row stats">
-        <div class="col">
-            <div class="stat-card">
-                <h3>Rendez-vous en attente</h3>
-                <strong>{{ pendingAppointmentsCount }}</strong>
-              </div>
-        </div>
-        <div class="col">
-            <div class="stat-card">
-                <h3>Réparations terminées</h3>
-                <strong>{{ totalRepairs }}</strong>
-              </div>
-        </div>
+  <div class="row stats">
+    <div class="col">
+      <div class="stat-card">
+        <h3>Rendez-vous en attente</h3>
+        <strong>{{ pendingAppointmentsCount }}</strong>
+      </div>
     </div>
-    <div class="row mt-5">
-        <div class="col">
-                <h3>Répartition des rendez-vous</h3>
-                <div style="width: 50%; height: 400px;">
-                    <canvas baseChart
-                    [data]="appointmentData"
-                    [options]="doughnutChartOptions"
-                    [type]="doughnutChartType">
-                  </canvas>
-                </div>
-        </div>
-        <div class="col">
-                <h3>Réparations en cours et terminées</h3>
-                <div style="width: 50%; height: 400px;">
-                  <canvas baseChart
-                          [data]="repairsStatusData"
-                          [options]="doughnutChartOptionsRepairs"
-                          [type]="doughnutChartTypeRepairs"></canvas>
-                </div>
-        </div>
+    <div class="col">
+      <div class="stat-card">
+        <h3>Réparations terminées</h3>
+        <strong>{{ totalRepairs }}</strong>
+      </div>
     </div>
-    
   </div>
-  
+  <div class="chart row mt-5">
+    <div class="col">
+      <p class="text-center">Répartition des rendez-vous</p>
+      <div style="width: 100%;">
+        <canvas baseChart [data]="appointmentData" [options]="doughnutChartOptions" [type]="doughnutChartType">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="text-center">Réparations terminées par mécanicien</p>
+      <div>
+        <canvas style="width: 100%; height: 400px;" baseChart [data]="mechanicsRepairsData" [options]="barChartOptions" [type]="barChartType">
+        </canvas>
+      </div>
+    </div>
+    <div class="col">
+      <p class="text-center">Réparations des réparations</p>
+      <div style="width: 100%;">
+        <canvas baseChart [data]="repairsStatusData" [options]="doughnutChartOptionsRepairs"
+          [type]="doughnutChartTypeRepairs">
+        </canvas>
+
+      </div>
+    </div>
+  </div>
+
+</div>
