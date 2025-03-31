@@ -1,0 +1,33 @@
+
+  /* Animation de la ligne */
+@keyframes fadeInRow {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInRow {
+    animation: fadeInRow 0.5s ease-in-out;
+}
+
+/* Effet au survol de la ligne */
+.fadeInRow:hover {
+    animation: zoomIn 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: #f1f1f1; /* Changer la couleur de fond au survol */
+}
+
+/* Zoom au survol */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02); /* Agrandir légèrement la ligne */
+    }
+}

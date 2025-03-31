@@ -1,0 +1,37 @@
+<div *ngIf="repairs.length > 0; else noRepairs">
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>Description</th>
+          <th>Client</th>
+          <th>Email</th>
+          <th>Véhicule</th>
+          <th>Date</th>
+          <th>Coût</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let repair of repairs" class="fadeInRow text-center">
+          <td>{{ repair.appointmentId?.desciption || 'Aucune description'}}</td>
+          <td>{{ repair.appointmentId?.clientId?.name || 'Inconnu' }}</td>
+          <td>{{ repair.appointmentId?.clientId?.email || 'Inconnu' }}</td>
+          <td>{{ repair.appointmentId?.vehicleId?.model || 'Non spécifié' }}</td>
+          <td>{{ repair.appointmentId?.date | date:'dd/MM/yyyy à HH:mm' }}</td>
+          <td>{{ repair.cost | currency:'EUR':'symbol' }}</td>
+          <td>
+            <select (change)="updateStatus(repair._id, $event)" class="form-control">
+              <option value="à faire" [selected]="repair.status === 'à faire'">À faire</option>
+              <option value="en cours" [selected]="repair.status === 'en cours'">En cours</option>
+              <option value="terminé" [selected]="repair.status === 'terminé'">Terminé</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #noRepairs>
+    <p class="no-repairs-message">Aucune réparation trouvée.</p>
+  </ng-template>
+  

@@ -37,6 +37,8 @@ export class HeaderComponent {
   // Méthode de déconnexion
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
 
     this.router.navigate(['/login']);
   }
