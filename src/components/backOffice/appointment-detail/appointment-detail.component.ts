@@ -36,12 +36,13 @@ export class AppointmentDetailComponent implements OnInit{
       this.fetchAppointmentDetail(changes['appointmentId'].currentValue);
     }
   }
+
   fetchAppointmentDetail(appointmentId: string): void {
     this.appointService.fetchAppointmentDetail(appointmentId).subscribe(
       (response) => {
         this.appointmentDetails = response.appointment;
-        this.selectedMechanic = response.appointment.mecanicienId._id;  
-        this.repairCost = response.repairCost;  
+        this.selectedMechanic = response.appointment.mecanicienId._id || '';  
+        this.repairCost = response.repairCost || '';  
       },
       (error) => {
         console.error('Erreur lors de la récupération des détails du rendez-vous:', error);
