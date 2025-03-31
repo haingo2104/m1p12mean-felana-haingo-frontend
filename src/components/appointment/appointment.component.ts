@@ -35,6 +35,8 @@ export class AppointmentComponent {
   vehicles: any[] = [];
   newVehicleModel: string = '';
   clientId = localStorage.getItem('userId');
+  description: string = '';
+
 
   confirmedDate: Date | null = null;
   confirmedTime: Date | null = null;
@@ -55,6 +57,7 @@ export class AppointmentComponent {
     const date = this.selected;
     const time = this.selectedTime;
     let vehicleId = this.selectedVehicleId;
+    let description = this.description
 
     if (!clientId || !date || !time || !vehicleId) {
       console.error('Tous les champs doivent être remplis');
@@ -70,7 +73,7 @@ export class AppointmentComponent {
             console.log('Véhicule créé:', response);
             const newVehicle = response.vehicle;
             vehicleId = newVehicle._id;
-            this.createAppointment(clientId, vehicleId as string, date, time);
+            this.createAppointment(clientId, vehicleId as string, date, time , description);
           },
           error: (error) => {
             console.error('Erreur lors de la création du véhicule', error);
@@ -78,7 +81,7 @@ export class AppointmentComponent {
         });
     } else if (vehicleId) {
       // Si un véhicule existant est sélectionné
-      this.createAppointment(clientId, vehicleId, date, time);
+      this.createAppointment(clientId, vehicleId, date, time , description);
     } else {
       console.error(
         'Veuillez sélectionner un véhicule ou ajouter un nouveau véhicule.'
@@ -91,7 +94,8 @@ export class AppointmentComponent {
     clientId: string,
     vehicleId: string,
     date: Date,
-    time: Date
+    time: Date,
+    description : string
   ) {
     const appointmentDate = new Date(date);
     appointmentDate.setHours(
@@ -103,7 +107,7 @@ export class AppointmentComponent {
     const formattedDate = appointmentDate.toISOString();
 
     this.appointmentService
-      .createAppointment(clientId, vehicleId, formattedDate)
+      .createAppointment(clientId, vehicleId, formattedDate , description)
       .subscribe({
         next: (response: any) => {
           console.log('Rendez-vous créé avec succès', response);
