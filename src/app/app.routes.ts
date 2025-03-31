@@ -12,6 +12,7 @@ import { ServiceConfigComponent } from '../components/backOffice/service-config/
 import { AddServiceComponent } from '../components/backOffice/add-service/add-service.component';
 import { PlanningComponent } from '../components/backOffice/planning/planning.component';
 import { MechanicComponent } from '../components/mechanic/mechanic.component';
+import { ServiceOfferComponent } from '../components/service-offer/service-offer.component';
 
 export const routes: Routes = [
     {path : 'testUtilisation' , component : TestUtilisationComponent},
@@ -27,4 +28,5 @@ export const routes: Routes = [
     {path : 'add-service' , component : AddServiceComponent},
     {path : 'planning' , component : PlanningComponent},
     {path : 'repairs' , component : MechanicComponent},
+    {path : 'serviceOffer' , component : ServiceOfferComponent},
 ];

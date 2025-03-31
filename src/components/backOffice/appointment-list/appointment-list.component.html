@@ -1,13 +1,16 @@
 <div id="appointment-list">
   <ul>
     @for (appointment of appointments; track $index) {
-    <li (click)="selectAppointment(appointment._id || '')">
+    <li>
       <div class="content">
         <div>{{ appointment.vehicleId.model }}</div>
-
+        
         <div class="content-button">
+          <button class="btn btn-info" (click)="toggleDetails(appointment._id)">
+            Détails
+          </button>
           @if (appointment.status === "confirmé") {
-          <span class="text-success">Rendez-vous accepté</span>
+          <span class="text-success ms-3">Rendez-vous accepté</span>
           } @else {
           <button
             class="btn btn-success mx-5"
@@ -21,7 +24,7 @@
       </div>
 
       @if (selectedAppointmentId && selectedAppointmentId === appointment._id) {
-      <div>
+      <div class="appointment-card">
         <app-appointment-detail
           class="details"
           [appointmentId]="selectedAppointmentId"

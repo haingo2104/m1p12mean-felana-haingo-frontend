@@ -22,20 +22,11 @@ export class AppointmentListComponent implements OnInit {
       this.appointments = appointments;
     });
   }
-  selectAppointment(appointmentId: string): void {
-    if (!appointmentId) {
-      console.error('Invalid book ID');
-      return;
-    }
-    
-    if (this.selectedAppointmentId === appointmentId) {
-      this.selectedAppointmentId = ''; 
-    } else {
-      this.selectedAppointmentId = appointmentId; 
-    }
-  
-    console.log("Selected book ID:", this.selectedAppointmentId);
+  toggleDetails(appointmentId: string) {
+    this.selectedAppointmentId =
+      this.selectedAppointmentId === appointmentId ? null : appointmentId;
   }
+
 
   acceptAppointment(appointmentId: string): void {
     console.log('component',appointmentId);
