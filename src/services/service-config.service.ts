@@ -9,12 +9,13 @@ import { api } from '../constant';
 export class ServiceConfigService {
   private apiUrl = `${api}/services`;
   constructor(private http: HttpClient) { }
-  createService(serviceData: FormData): Observable<any> {
+  createService(serviceData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/add`, serviceData);
   }
-  updateService(id: string,serviceData: FormData): Observable<any> {
+  updateService(id: string, serviceData: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/update/${id}`, serviceData);
   }
+
   getAllServices(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }

@@ -7,7 +7,7 @@ import { api } from '../constant';
   providedIn: 'root',
 })
 export class VehicleServiceService {
-  private readonly apiUrl = `${api}/vehicles`;;
+  private readonly apiUrl = `${api}/vehicles`;
   constructor(private readonly http: HttpClient) {}
   getVehicles(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);

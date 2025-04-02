@@ -15,7 +15,7 @@ export class AddServiceComponent {
     _id:'',
     title: '',
     description: '',
-    photo: null,
+    image: '' as string | null,
   };
 
   constructor(private serviceService: ServiceConfigService,private route: ActivatedRoute, private router: Router) {}
@@ -33,25 +33,35 @@ export class AddServiceComponent {
 
   onFileSelect(event: any) {
     const file = event.target.files[0];
-    this.service.photo = file;
-    console.log('Photo sélectionnée:', file);
+  
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file); // Convertit en Base64
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          this.service.image = reader.result; // Stocker en Base64
+          console.log('Image convertie en Base64:', this.service.image);
+        }
+      };
+      reader.onerror = (error) => {
+        console.error('Erreur lors de la conversion en Base64:', error);
+      };
+    }
   }
-
+  
   onSubmit() {
     if (this.service.title && this.service.description) {
-      const formData = new FormData();
-      formData.append('title', this.service.title);
-      formData.append('description', this.service.description);
-
-      if (this.service.photo) {
-        formData.append('file', this.service.photo); // Ajoute la photo seulement si elle est définie
-      }
-      
-      // Vérifie si on doit créer ou mettre à jour un service
+      // Création de l'objet JSON à envoyer
+      const serviceData = {
+        title: this.service.title,
+        description: this.service.description,
+        image: this.service.image, // L'image est déjà en Base64
+      };
+      console.log(serviceData);
+  
       if (this.service._id) {
-        
-        // Mise à jour
-        this.serviceService.updateService(this.service._id, formData).subscribe({
+        // Mise à jour du service
+        this.serviceService.updateService(this.service._id, serviceData).subscribe({
           next: (response) => {
             console.log('Service mis à jour avec succès', response);
             this.resetForm();
@@ -62,8 +72,8 @@ export class AddServiceComponent {
           },
         });
       } else {
-        // Création
-        this.serviceService.createService(formData).subscribe({
+        // Création d'un nouveau service
+        this.serviceService.createService(serviceData).subscribe({
           next: (response) => {
             console.log('Service créé avec succès', response);
             this.resetForm();
@@ -78,13 +88,14 @@ export class AddServiceComponent {
       console.log('Veuillez remplir tous les champs');
     }
   }
-
+  
+  
   resetForm() {
     this.service = {
       _id:'',
       title: '',
       description: '',
-      photo: null,
+      image: null,
     };
   }
 }

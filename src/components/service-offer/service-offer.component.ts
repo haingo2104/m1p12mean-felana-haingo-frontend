@@ -10,21 +10,24 @@ import { Router } from '@angular/router';
   styleUrl: './service-offer.component.css'
 })
 export class ServiceOfferComponent {
+  isLoading: boolean = true; 
   services: any[] = [];
-  imageBaseUrl = 'https://m1p12mean-felana-haingo.vercel.app';
   constructor(
     private readonly serviceApi: ServiceConfigService
   ) {}
 
   ngOnInit() {
-
-    this.serviceApi.getAllServices().subscribe((services) => {
-      this.services = services;
-      console.log(this.services)
-    });
+    this.serviceApi.getAllServices().subscribe(
+      (services) => {
+        this.services = services;
+        this.isLoading = false;  
+        console.log(this.services);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des services', error);
+        this.isLoading = false; 
+      }
+    );
   }
 
-  getImageUrl(imagePath: string | null): string {
-    return imagePath ? `${this.imageBaseUrl}/${imagePath.replace(/\\/g, '/')}` : 'assets/default-image.png';
-  }
 }
