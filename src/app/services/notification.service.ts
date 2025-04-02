@@ -7,12 +7,12 @@ import { api } from '../../constant';
   providedIn: 'root'
 })
 export class NotificationService {
-  private apiUrl = `${api}/notifications`;; // Remplacez par votre API
+  private apiUrl = `${api}/notifications`; // Remplacez par votre API
 
   constructor(private http: HttpClient) {}
 
   getNotifications(userId: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}${userId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/${userId}`);
   }
 
 }
