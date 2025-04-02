@@ -3,12 +3,13 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { api } from '../constant';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthentificationServiceService {
-  private readonly apiUrl = 'http://localhost:5000/auth/login';
+  private readonly apiUrl = `${api}/auth/login`;;
   constructor(
     private readonly http: HttpClient,
     private readonly router: Router

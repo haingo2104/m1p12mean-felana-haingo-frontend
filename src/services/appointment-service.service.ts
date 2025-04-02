@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { api } from '../constant';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppointmentServiceService {
-  private readonly apiUrl = 'http://localhost:5000/appointments';
+  private readonly apiUrl = `${api}/appointments`;
   constructor(private readonly http: HttpClient) {}
   createAppointment(
     clientId: string,

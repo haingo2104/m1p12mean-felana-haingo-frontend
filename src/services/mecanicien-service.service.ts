@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { api } from '../constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MecanicienServiceService {
-  private readonly apiUrlRegister = 'http://localhost:5000/users/register';
+  private readonly apiUrlRegister = `${api}/users/register`;;
   private readonly apiUrlGetMecaniciens =
-    'http://localhost:5000/users/';
+    `${api}/users`;
 
   constructor(private readonly http: HttpClient) {}
 
