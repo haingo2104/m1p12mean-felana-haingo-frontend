@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { api } from '../constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = `${api}`;
   constructor(private http: HttpClient) { }
 
   // 📊 Récupérer la répartition des rendez-vous par statut
