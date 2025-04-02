@@ -10,12 +10,20 @@ import { CommonModule } from '@angular/common';
 })
 export class PlanningComponent implements OnInit{
   unavailableDate:any[] = []
+  isLoading: boolean = true; 
+
   constructor(private readonly appointmentService: AppointmentServiceService){}
   ngOnInit() {
     this.appointmentService.getUnavailableDate().subscribe((response: any) => {
       if (response && response.unavailableDates) {
         this.unavailableDate = response.unavailableDates.map((date: string) => new Date(date));
+        this.isLoading = false;  
+
       }
-    });
+    } , 
+    (error) => {
+      this.isLoading = false; 
+    }
+  );
   }
 }

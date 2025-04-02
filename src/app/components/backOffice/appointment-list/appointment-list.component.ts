@@ -13,6 +13,8 @@ export class AppointmentListComponent implements OnInit {
   appointments: any[] = [];
   selectedAppointmentId: string | null = null;
   acceptedAppointments: string[] = [];
+  isLoading: boolean = true; 
+
 
   constructor(
     private readonly appointmentService: AppointmentServiceService
@@ -20,6 +22,10 @@ export class AppointmentListComponent implements OnInit {
   ngOnInit() {
     this.appointmentService.getAllAppointments().subscribe((appointments) => {
       this.appointments = appointments;
+      this.isLoading = false;  
+    },
+    (error) => {
+      this.isLoading = false; 
     });
   }
   toggleDetails(appointmentId: string) {

@@ -15,6 +15,8 @@ export class ServiceConfigComponent {
   services: any[] = [];
   serviceToDeleteId: string | null = null; // Stocker l'ID du service à supprimer
   modalInstance: any;
+  isLoading: boolean = true; 
+
   constructor(
     private readonly serviceApi: ServiceConfigService, private router: Router
   ) {}
@@ -23,6 +25,9 @@ export class ServiceConfigComponent {
 
     this.serviceApi.getAllServices().subscribe((services) => {
       this.services = services;
+      this.isLoading = false
+    } , (error) => {
+      this.isLoading = false; 
     });
   }
 

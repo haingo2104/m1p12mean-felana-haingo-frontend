@@ -1,10 +1,24 @@
+@if (isLoading) {
+<div class="text-center">
+  <div class="spinner-grow text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+}
+@if (!isLoading) {
 <div id="appointment-list">
   <ul>
     @for (appointment of appointments; track $index) {
-    <li>
+    <li class="fade-in">
       <div class="content">
-        <div>{{ appointment.vehicleId.model }}</div>
-        
+        <div>{{ appointment.clientId.name }}</div>
+
         <div class="content-button">
           <button class="btn btn-info" (click)="toggleDetails(appointment._id)">
             Détails
@@ -12,10 +26,7 @@
           @if (appointment.status === "confirmé") {
           <span class="text-success ms-3">Rendez-vous accepté</span>
           } @else {
-          <button
-            class="btn btn-success mx-5"
-            (click)="acceptAppointment(appointment._id)"
-          >
+          <button class="btn btn-success mx-5" (click)="acceptAppointment(appointment._id)">
             Accepter
           </button>
           <button class="btn btn-danger">Refuser</button>
@@ -25,13 +36,11 @@
 
       @if (selectedAppointmentId && selectedAppointmentId === appointment._id) {
       <div class="appointment-card">
-        <app-appointment-detail
-          class="details"
-          [appointmentId]="selectedAppointmentId"
-        ></app-appointment-detail>
+        <app-appointment-detail class="details" [appointmentId]="selectedAppointmentId"></app-appointment-detail>
       </div>
       }
     </li>
         }   
   </ul>
 </div>
+}

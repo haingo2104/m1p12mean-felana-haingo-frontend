@@ -20,6 +20,26 @@ export class AppointmentDetailComponent implements OnInit{
 
   constructor(private readonly appointService: AppointmentServiceService,private apiService: MecanicienServiceService) {}
 
+  formatDateTime(dateString: string): string {
+    if (!dateString) return '';
+  
+    const date = new Date(dateString);
+  
+    const formattedDate = new Intl.DateTimeFormat('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(date);
+  
+    const formattedTime = new Intl.DateTimeFormat('fr-FR', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false, // Format 24h
+    }).format(date);
+  
+    return `${formattedDate} à ${formattedTime}`;
+  }
+  
 
   ngOnInit(): void {
     if (this.appointmentId) {

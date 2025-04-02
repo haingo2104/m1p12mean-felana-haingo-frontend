@@ -1,0 +1,22 @@
+.planning-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #ffef9d;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    text-align: center;
+  }
+  
+  .table-head {
+    background-color: #ffef9d !important;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
