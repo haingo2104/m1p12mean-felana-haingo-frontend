@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HistoriqueService {
-  private readonly apiUrl = `${api}/historiques`;
+  private readonly apiUrl = `${api}/appointments`;
 
   constructor(private readonly http: HttpClient) { }
   getHistoriques(clientId: string): Observable<any> {
