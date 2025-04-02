@@ -18,7 +18,7 @@ export class MecanicienServiceService {
   }
 
   getMecaniciens(roleName: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrlGetMecaniciens}${roleName}`);
+    return this.http.get<any[]>(`${this.apiUrlGetMecaniciens}/${roleName}`);
   }
 
   // Méthode pour mettre à jour le statut d'un mécanicien
