@@ -11,7 +11,6 @@ export class HistoriqueService {
 
   constructor(private readonly http: HttpClient) { }
   getHistoriques(clientId: string): Observable<any> {
-    const params = new HttpParams().set('clientId', clientId);
-    return this.http.get<any[]>(`${this.apiUrl}/historiques`, { params });
+    return this.http.get<any[]>(`${this.apiUrl}/historiques/${clientId}`);
   }
 }
