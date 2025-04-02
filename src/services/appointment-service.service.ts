@@ -12,9 +12,10 @@ export class AppointmentServiceService {
   createAppointment(
     clientId: string,
     vehicleId: string,
-    date: string
+    date: string,
+    description: string
   ): Observable<any> {
-    const appointmentData = { clientId, vehicleId, date };
+    const appointmentData = { clientId, vehicleId, date , description };
     return this.http.post<any>(this.apiUrl, appointmentData);
   }
 
@@ -29,4 +30,14 @@ export class AppointmentServiceService {
     const appointmentData = { appointmentId };
     return this.http.post<any>(`${this.apiUrl}/accept`, appointmentData);
   } 
+
+  assignMechanic(appointmentId: string, idMecanien : string, repairCost : string): Observable<any> {
+    const data = { appointmentId, idMecanien ,repairCost};
+    console.log(data)
+    return this.http.post<any>(`${this.apiUrl}/assignMechanic`, data);
+  } 
+  getUnavailableDate(): Observable<{ unavailableDates: string[] }> {
+    return this.http.get<{ unavailableDates: string[] }>(`${this.apiUrl}/unavailableDate`);
+  }
+  
 }

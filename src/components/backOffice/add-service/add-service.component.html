@@ -1,0 +1,20 @@
+<div class="card p-4">
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Titre</label>
+        <input id="title" type="text" class="form-control" [(ngModel)]="service.title" name="title" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="service.description" name="description" rows="3" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <input id="photo" type="file" class="form-control" (change)="onFileSelect($event)" />
+      </div>
+
+      <button type="submit" class="btn btn-success">Ajouter le Service</button>
+    </form>
+  </div>

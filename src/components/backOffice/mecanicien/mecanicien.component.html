@@ -1,12 +1,11 @@
 <div class="container mt-4">
   <h2 class="mb-3">Gestion des Mécaniciens</h2>
 
-  <!-- Bouton pour ouvrir le modal -->
   <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMecanicienModal">
     Ajouter
   </button>
 
-  <!-- Table des mécaniciens -->
+
   <table class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
@@ -14,7 +13,6 @@
         <th>Email</th>
         <th>Téléphone</th>
         <th>Spécialité</th>
-        <!-- <th>Statut</th> -->
         <th>Actions</th>
       </tr>
     </thead>
@@ -69,13 +67,6 @@
             <label for="specialite" class="form-label">Spécialité</label>
             <input type="text" id="specialite" class="form-control" [(ngModel)]="data.speciality" name="speciality" required />
           </div>
-          <!-- <div class="mb-3">
-            <label for="statut" class="form-label">Statut</label>
-            <select id="statut" class="form-select" [(ngModel)]="mecanicien.actif" name="actif">
-              <option [ngValue]="true">Actif</option>
-              <option [ngValue]="false">Inactif</option>
-            </select>
-          </div> -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             <button type="submit" class="btn btn-primary">Ajouter</button>
