@@ -1,0 +1,24 @@
+.contact-info {
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-info:hover {
+  transform: scale(1.05);
+}
+
+.vr {
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+  width: 80px;
+  height: auto;
+}
+
+.icone{
+  color: #00B8D4;
+}
+.btn-color{
+  background-color: #00B8D4;
+  color: white;
+}

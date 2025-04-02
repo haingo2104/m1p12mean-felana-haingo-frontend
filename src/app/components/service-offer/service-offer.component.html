@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Our services</h2>
+
+    @if (isLoading) {
+      <div class="text-center">
+        <div class="spinner-grow text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    }
+    @if (!isLoading) {
+      <div class="row">
+        @for (service of services; track $index) {
+          <div class="col-md-6 mb-4">
+            <div class="card shadow">
+              @if (service.image) {
+                <img [src]="service.image" class="card-img-top" alt="Image du service">
+              }
+              <div class="card-body">
+                <h5 class="card-title">{{ service.title }}</h5>
+                <p class="card-text">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+</div>
