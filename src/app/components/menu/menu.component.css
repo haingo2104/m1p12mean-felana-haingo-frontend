@@ -7,3 +7,14 @@
     background-color: #00B8D4;  /* Cyan lumineux */
     color: white;
 }
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    
+  }
+  
+  

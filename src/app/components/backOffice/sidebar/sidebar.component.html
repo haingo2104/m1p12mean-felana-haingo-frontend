@@ -65,9 +65,15 @@
 
     @if (userRole === 'client') {
       <li class="nav-item">
-        <a routerLink="/generer-facture" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
-          <i class="fas fa-file-invoice"></i>
+        <a routerLink="/historiques" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
+          <i class="fas fa-history"></i>
           @if (!isCollapsed) { <span class="menu-text ms-2">Voir Historique</span> }
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/appointment" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
+          <i class="fas fa-file-invoice"></i>
+          @if (!isCollapsed) { <span class="menu-text ms-2">Prendre Rendez-vous</span> }
         </a>
       </li>
     }

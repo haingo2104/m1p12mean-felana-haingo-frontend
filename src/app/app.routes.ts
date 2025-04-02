@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { TestUtilisationComponent } from './components/test-utilisation/test-utilisation.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,20 +12,22 @@ import { AddServiceComponent } from './components/backOffice/add-service/add-ser
 import { PlanningComponent } from './components/backOffice/planning/planning.component';
 import { MechanicComponent } from './components/mechanic/mechanic.component';
 import { ServiceOfferComponent } from './components/service-offer/service-offer.component';
+import { HistoriquesComponent } from './components/historiques/historiques.component';
+import { AuthGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
-    {path : 'testUtilisation' , component : TestUtilisationComponent},
     {path : '' , component : HomeComponent},
     {path : 'contact' , component : ContactComponent}, 
     {path : 'login' , component : LoginComponent},
-    {path : 'sidebar' , component : SidebarComponent},
-    {path : 'mecanicien' , component : MecanicienComponent},
-    {path : 'dashboard' , component : DashboardComponent},
-    {path : 'appointment' , component : AppointmentComponent},
-    {path : 'list-appointment' , component : AppointmentListComponent},
-    {path : 'services' , component : ServiceConfigComponent},
-    {path : 'add-service' , component : AddServiceComponent},
-    {path : 'planning' , component : PlanningComponent},
-    {path : 'repairs' , component : MechanicComponent},
+    {path : 'sidebar' , component : SidebarComponent, canActivate: [AuthGuard]},
+    {path : 'mecanicien' , component : MecanicienComponent, canActivate: [AuthGuard]},
+    {path : 'dashboard' , component : DashboardComponent, canActivate: [AuthGuard]},
+    {path : 'appointment' , component : AppointmentComponent, canActivate: [AuthGuard]},
+    {path : 'list-appointment' , component : AppointmentListComponent, canActivate: [AuthGuard]},
+    {path : 'services' , component : ServiceConfigComponent, canActivate: [AuthGuard]},
+    {path : 'add-service' , component : AddServiceComponent, canActivate: [AuthGuard]},
+    {path : 'planning' , component : PlanningComponent, canActivate: [AuthGuard]},
+    {path : 'repairs' , component : MechanicComponent, canActivate: [AuthGuard]},
     {path : 'serviceOffer' , component : ServiceOfferComponent},
+    {path : 'historiques' , component : HistoriquesComponent, canActivate: [AuthGuard]},
 ];
