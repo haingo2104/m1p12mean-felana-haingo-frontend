@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'm1p12mean-felana-haingo-frontend';
   showSidebar: boolean = true;
 
-  hiddenRoutes: string[] = ['/', '/login']; 
+  hiddenRoutes: string[] = ['/', '/login','/#serviceOffer','/#contact']; 
   constructor(private readonly router: Router) {
     this.router.events.subscribe(() => {
       this.showSidebar = !this.hiddenRoutes.includes(this.router.url);

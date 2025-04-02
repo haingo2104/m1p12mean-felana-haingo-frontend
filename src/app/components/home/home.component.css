@@ -11,6 +11,7 @@
     justify-content: space-around;
     padding: 20px;
     overflow: hidden;
+    margin-top: 4.5rem;
   }
   
   .banner-section::before {
