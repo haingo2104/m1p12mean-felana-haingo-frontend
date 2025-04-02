@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ServiceOfferComponent {
   services: any[] = [];
-  imageBaseUrl = 'http://localhost:5000';
+  imageBaseUrl = 'https://m1p12mean-felana-haingo.vercel.app';
   constructor(
     private readonly serviceApi: ServiceConfigService
   ) {}
