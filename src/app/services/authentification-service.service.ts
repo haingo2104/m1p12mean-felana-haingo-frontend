@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { api } from '../constant';
+import { api } from '../../constant';
 
 @Injectable({
   providedIn: 'root',

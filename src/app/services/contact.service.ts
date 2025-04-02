@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import { api } from '../constant';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { api } from '../../constant';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersServiceService {
-  private readonly apiUrl =`${api}/users/register`;;
+export class ContactService {
+  private readonly apiUrl =`${api}/contact/message`;
   constructor(private readonly http:HttpClient) {
 
   }
