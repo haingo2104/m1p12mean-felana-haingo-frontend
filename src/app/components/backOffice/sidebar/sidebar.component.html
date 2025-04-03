@@ -13,7 +13,7 @@
       <li class="nav-item">
         <a routerLink="/dashboard" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center">
           <i class="fas fa-chart-bar"></i>
-          @if (!isCollapsed) { <span class="menu-text ms-2">Dashboard</span> }
+          @if (!isCollapsed) { <span class="menu-text ms-2">Tableau de bord</span> }
         </a>
       </li>
 
@@ -74,6 +74,15 @@
         <a routerLink="/appointment" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
           <i class="fas fa-file-invoice"></i>
           @if (!isCollapsed) { <span class="menu-text ms-2">Prendre Rendez-vous</span> }
+        </a>
+      </li>
+    }
+
+    @if (userRole === 'mecanicien') {
+      <li class="nav-item">
+        <a routerLink="/list-repairs" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
+          <i class="fas fa-list"></i>
+          @if (!isCollapsed) { <span class="menu-text ms-2">Liste des réparations</span> }
         </a>
       </li>
     }

@@ -2,7 +2,7 @@
   <div class="container d-flex justify-content-center align-items-center">
     <div class="login-container">
       <img src="logo.png" alt="CarRepair Logo" class="header-logo mb-3" />
-      <h3 class="login-title">Enter your username to log into your account</h3>
+      <h3 class="login-title">Entrez votre identifiant pour vous connecter à votre compte</h3>
 
       <div *ngIf="successMessage" class="alert alert-success">
         {{ successMessage }}
@@ -26,12 +26,12 @@
             placeholder="Enter your email" required />
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Mot de passe</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="data.password" name="password"
             placeholder="Enter your password" required />
         </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
       </form>
     </div>
   </div>

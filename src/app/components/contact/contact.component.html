@@ -2,7 +2,7 @@
   <!-- <img src="logo.png" alt="CarRepair Logo" class="header-logo mb-3" /> -->
   <!-- Titre -->
   <div class="text-center">
-    <span class="text-secondary text-uppercase">Get in touch</span>
+    <span class="text-secondary text-uppercase">Prenez contact</span>
     <h2 class="fw-bold text-dark">CONTACT</h2>
   </div>
 
@@ -37,41 +37,41 @@
     <div class="col-md-6">
       <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
+          <label for="name" class="form-label">Votre Nom</label>
           <input
             type="text"
             class="form-control"
             id="name"
             [(ngModel)]="data.name"
             name="name"
-            placeholder="Enter your name"
+            placeholder="Entrez votre nom"
           />
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Your Email</label>
+          <label for="email" class="form-label">Votre Email</label>
           <input
             type="email"
             class="form-control"
             id="email"
             name ="email"
             [(ngModel)]="data.email"
-            placeholder="Enter your email"
+            placeholder="Entrez votre email"
           />
         </div>
         <div class="mb-3">
-          <label for="message" class="form-label">Your Message</label>
+          <label for="message" class="form-label">Votre Message</label>
           <textarea
             class="form-control"
             id="message"
             name = "message"
             rows="4"
             [(ngModel)]="data.message"
-            placeholder="Write your message"
+            placeholder="Écrivez votre message"
           ></textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-color px-4 py-2">
-            Send Message
+            Envoyer le message
           </button>
         </div>
       </form>
