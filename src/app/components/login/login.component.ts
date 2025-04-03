@@ -26,14 +26,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.route.url.subscribe(urlSegments => {
-      const roleFromUrl = urlSegments.length > 0 ? urlSegments[0]?.path : ''; 
-
+      console.log('URL Segments:', urlSegments);
+  
+      const roleFromUrl = urlSegments.length > 1 ? urlSegments[1]?.path : 'client';  
+  
+  
       if (['mecanicien', 'manager'].includes(roleFromUrl)) {
         this.role = roleFromUrl;
       } else {
-        this.role = 'client'; // Si ce n'est ni "mecanicien" ni "manager", alors c'est un client
+        this.role = 'client';  // Si aucun rôle spécifique, on définit le client par défaut
       }
-
+  
       this.setDefaultCredentials(this.role);
     });
   }
