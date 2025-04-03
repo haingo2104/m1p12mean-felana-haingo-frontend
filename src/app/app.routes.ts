@@ -14,6 +14,7 @@ import { MechanicComponent } from './components/mechanic/mechanic.component';
 import { ServiceOfferComponent } from './components/service-offer/service-offer.component';
 import { HistoriquesComponent } from './components/historiques/historiques.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ClientComponent } from './components/backOffice/client/client.component';
 
 export const routes: Routes = [
     {path : '' , component : HomeComponent},
@@ -33,4 +34,5 @@ export const routes: Routes = [
     {path : 'serviceOffer' , component : ServiceOfferComponent},
     {path : 'historiques' , component : HistoriquesComponent, canActivate: [AuthGuard]},
     {path : 'list-repairs' , component : MechanicComponent, canActivate: [AuthGuard]},
+    {path : 'client' , component : ClientComponent, canActivate: [AuthGuard]},
 ];
