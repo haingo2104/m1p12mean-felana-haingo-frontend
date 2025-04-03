@@ -30,4 +30,5 @@ export const routes: Routes = [
     {path : 'repairs' , component : MechanicComponent, canActivate: [AuthGuard]},
     {path : 'serviceOffer' , component : ServiceOfferComponent},
     {path : 'historiques' , component : HistoriquesComponent, canActivate: [AuthGuard]},
+    {path : 'list-repairs' , component : MechanicComponent, canActivate: [AuthGuard]},
 ];

@@ -77,5 +77,14 @@
         </a>
       </li>
     }
+
+    @if (userRole === 'mecanicien') {
+      <li class="nav-item">
+        <a routerLink="/list-repairs" routerLinkActive="active" class="nav-link text-dark d-flex align-items-center gap-2">
+          <i class="fas fa-list"></i>
+          @if (!isCollapsed) { <span class="menu-text ms-2">Liste des réparations</span> }
+        </a>
+      </li>
+    }
   </ul>
 </nav>
