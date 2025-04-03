@@ -1,0 +1,36 @@
+.table tbody tr {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f0f0;
+    /* Couleur de survol */
+    transform: scale(1.02);
+    /* Légère agrandissement lors du survol */
+}
+
+/* Ajouter des ombres pour les lignes */
+.table tbody tr {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
