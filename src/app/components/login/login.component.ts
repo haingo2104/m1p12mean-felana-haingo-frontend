@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthentificationServiceService } from '../../services/authentification-service.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,45 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   data = {
     email : '',
     password : '',
   }
+  role: string = 'client'; // Valeur par défaut
 
   errorMessage: string | null = null; // Message d'erreur
   successMessage: string | null = null; // Message de succès
   isLoading: boolean = false;
 
-  constructor(private readonly apiService: AuthentificationServiceService){}
+  constructor(private readonly apiService: AuthentificationServiceService,private route: ActivatedRoute){}
+
+  ngOnInit() {
+    this.route.url.subscribe(urlSegments => {
+      const roleFromUrl = urlSegments.length > 0 ? urlSegments[0]?.path : ''; 
+
+      if (['mecanicien', 'manager'].includes(roleFromUrl)) {
+        this.role = roleFromUrl;
+      } else {
+        this.role = 'client'; // Si ce n'est ni "mecanicien" ni "manager", alors c'est un client
+      }
+
+      this.setDefaultCredentials(this.role);
+    });
+  }
+  
+  
+  // Définir les valeurs par défaut pour chaque rôle
+  setDefaultCredentials(role: string) {
+    const defaultCredentials : any = {
+      client: { email: 'haingo.softwell@gmail.com', password: 'client123' },
+      mecanicien: { email: 'fara.haingonirina@gmail.com', password: '123456' },
+      manager: { email: 'randy.rajaonson@gmail.com', password: '123456' }
+    };
+
+    this.data = { ...defaultCredentials[role] };
+  }
+
   onSubmit(){
     if(this.data) {
       this.isLoading = true
