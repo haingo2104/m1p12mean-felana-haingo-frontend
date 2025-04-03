@@ -20,7 +20,6 @@ export class MecanicienComponent {
     name: '',
     email: '',
     phone: '',
-    password: ' ',
     role: 'mecanicien', // Ajout du rôle par défaut
     speciality: '',
   };

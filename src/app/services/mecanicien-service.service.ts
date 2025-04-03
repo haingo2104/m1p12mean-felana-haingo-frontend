@@ -7,7 +7,7 @@ import { api } from '../../constant';
   providedIn: 'root'
 })
 export class MecanicienServiceService {
-  private readonly apiUrlRegister = `${api}/users/register`;;
+  private readonly apiUrlRegister = `${api}/users/registerWithOtp`;;
   private readonly apiUrlGetMecaniciens =
     `${api}/users`;
 
