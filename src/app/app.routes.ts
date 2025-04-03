@@ -20,7 +20,7 @@ export const routes: Routes = [
     {path : 'contact' , component : ContactComponent}, 
     {path : 'login' , component : LoginComponent},
     { path: 'login/mecanicien', component: LoginComponent },
-  { path: 'login/manager', component: LoginComponent },
+    { path: 'login/manager', component: LoginComponent },
     {path : 'sidebar' , component : SidebarComponent, canActivate: [AuthGuard]},
     {path : 'mecanicien' , component : MecanicienComponent, canActivate: [AuthGuard]},
     {path : 'dashboard' , component : DashboardComponent, canActivate: [AuthGuard]},
