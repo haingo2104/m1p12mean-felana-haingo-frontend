@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-2">
     <h2 class="mb-3">Liste des clients</h2>
 
     <table class="table table-bordered table-striped">
@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         
-          <tr *ngFor="let client of clients; let i = index">
+          <tr *ngFor="let client of clients; let i = index" class="animate-fade-in">
             <td>{{ client.name }}</td>
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
