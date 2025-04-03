@@ -23,6 +23,6 @@ export class MecanicienServiceService {
 
   // Méthode pour mettre à jour le statut d'un mécanicien
   updateMecanicienStatus(id: string, status: string): Observable<any> {
-    return this.http.put<any>(`${this.apiUrlGetMecaniciens}${id}/status`, { status });
+    return this.http.put<any>(`${this.apiUrlGetMecaniciens}/${id}/status`, { status });
   }
 }
