@@ -28,7 +28,6 @@ export class HeaderComponent {
         this.notificationCount = this.notifications.length;
       },
       error: (error: any) => {
-        console.error('Erreur de récupération des notifications', error);
       },
     });
     
