@@ -1,1 +1,1 @@
-export const api = 'https://m1p12mean-felana-haingo.vercel.app'
+export const api = 'https://m1p12mean-felana-haingo-backend.vercel.app/'
