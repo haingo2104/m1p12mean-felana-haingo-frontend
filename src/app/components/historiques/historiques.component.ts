@@ -23,7 +23,6 @@ export class HistoriquesComponent implements OnInit {
     if (this.clientId) {
       this.historiqueService.getHistoriques(this.clientId).subscribe(
         (data) => {
-          console.log("Données reçues :", data);
           this.historiques = data;
         },
         (error) => {

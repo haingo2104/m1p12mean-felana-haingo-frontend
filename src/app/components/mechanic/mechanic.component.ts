@@ -23,7 +23,6 @@ export class MechanicComponent implements OnInit {
     if (this.mecanicienId) {
       this.repairService.getMechanicRepairs(this.mecanicienId).subscribe(
         (data) => {
-          console.log("Données reçues :", data);
           this.repairs = data;
         },
         (error) => {
@@ -40,7 +39,6 @@ export class MechanicComponent implements OnInit {
   
     this.repairService.updateRepairStatus(id, status).subscribe(
       (response) => {
-        console.log('Statut mis à jour:', response);
         this.loadRepairs();  // Recharge les réparations après mise à jour
       },
       (error) => {

@@ -55,7 +55,6 @@ export class ServiceConfigComponent {
     if (this.serviceToDeleteId) {
       this.serviceApi.deleteService(this.serviceToDeleteId).subscribe({
         next: () => {
-          console.log('Service supprimé avec succès');
           this.ngOnInit(); // Recharger la liste après suppression
           if (this.modalInstance) {
             this.modalInstance.hide(); // Cacher le modal après la suppression

@@ -80,7 +80,6 @@ export class AppointmentDetailComponent implements OnInit{
       (response) => {
         this.showToast();
         this.ngOnInit();
-        console.log('Réponse du serveur :', response);
       },
       (error) => {
         console.error('Erreur lors de l’assignation du mécanicien :', error);

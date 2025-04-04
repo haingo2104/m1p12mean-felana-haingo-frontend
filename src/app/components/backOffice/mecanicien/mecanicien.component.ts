@@ -56,7 +56,6 @@ export class MecanicienComponent {
           
         },
         error: (error) => {
-          console.log('data service', this.data);
           console.error('Erreur', error);
         },
       });

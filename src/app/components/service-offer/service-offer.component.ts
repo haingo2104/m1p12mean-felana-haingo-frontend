@@ -21,7 +21,6 @@ export class ServiceOfferComponent {
       (services) => {
         this.services = services;
         this.isLoading = false;  
-        console.log(this.services);
       },
       (error) => {
         console.error('Erreur lors de la récupération des services', error);

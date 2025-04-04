@@ -35,7 +35,6 @@ export class AppointmentListComponent implements OnInit {
 
 
   acceptAppointment(appointmentId: string): void {
-    console.log('component',appointmentId);
     if (!appointmentId) {
       console.error('appointment et user non recupéré');
       return;
@@ -45,7 +44,6 @@ export class AppointmentListComponent implements OnInit {
       next: (response) => {
         this.acceptedAppointments.push(appointmentId);
         this.ngOnInit();
-        console.log("Réponse de l'API:", response);
       },
       error: (error) =>{
         console.error('Erreur', error);

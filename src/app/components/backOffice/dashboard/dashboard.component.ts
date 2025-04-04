@@ -86,7 +86,6 @@ export class DashboardComponent implements OnInit {
 
     this.dashboardService.getAppointmentsSummary(startDate, endDate).subscribe({
       next: (data) => {
-        console.log('Données récupérées pour les rendez-vous :', data);  // Affiche les données retournées
     
         // Vérifier que les données sont valides
         if (data && Array.isArray(data) && data.length > 0) {
@@ -112,33 +111,29 @@ export class DashboardComponent implements OnInit {
       error: (error) => {
         console.error('Erreur chargement rendez-vous', error);
       },
-      complete: () => console.log('✅ Chargement des rendez-vous terminé')
+      complete: () => {}
     });
     
   
     this.dashboardService.getPendingAppointmentsCount().subscribe({
       next: (data) => {
-        console.log('Données pour rendez-vous en attente :', data); // Affiche les données pour rendez-vous en attente
         this.pendingAppointmentsCount = data.pendingAppointmentsCount;
       },
       error: (error) => console.error('Erreur chargement rendez-vous en attente', error),
-      complete: () => console.log('✅ Chargement des rendez-vous en attente terminé')
+      complete: () => {}
     });
   
     this.dashboardService.getTotalRepairs(startDate, endDate).subscribe({
       next: (data) => {
-        console.log('Données pour réparations :', data); // Affiche l'objet de données { totalRepairs: 1 }
         // Vous pouvez accéder à totalRepairs comme suit
         this.totalRepairs = data.totalRepairs;
       },
       error: (error) => console.error('Erreur chargement réparations', error),
-      complete: () => console.log('✅ Chargement des réparations terminé')
+      complete: () => {}
     });
     
     this.dashboardService.getRepairsSummary(startDate, endDate).subscribe({
       next: (data) => {
-        console.log('Données pour réparations :', data);
-    
         this.repairsStatusData = {
           labels: ['À faire', 'En cours', 'Terminé'],  // ➕ Ajout de "À faire"
           datasets: [{
@@ -148,13 +143,12 @@ export class DashboardComponent implements OnInit {
         };
       },
       error: (error) => console.error('Erreur chargement réparations', error),
-      complete: () => console.log('✅ Chargement des réparations terminé')
+      complete: () =>{}
     });
     
 
     this.dashboardService.getMechanicsWithCompletedRepairs().subscribe({
       next: (data) => {
-        console.log('Données des réparations par mécanicien :', data);
   
         if (data && Array.isArray(data) && data.length > 0) {
           this.mechanicsRepairsData = {
@@ -168,7 +162,7 @@ export class DashboardComponent implements OnInit {
         }
       },
       error: (error) => console.error('Erreur chargement réparations par mécanicien', error),
-      complete: () => console.log('✅ Chargement des réparations par mécanicien terminé')
+      complete: () =>{}
     });
   
   }

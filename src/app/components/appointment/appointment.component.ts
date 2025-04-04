@@ -70,7 +70,6 @@ export class AppointmentComponent {
         .createVehicle(clientId, this.newVehicleModel)
         .subscribe({
           next: (response) => {
-            console.log('Véhicule créé:', response);
             const newVehicle = response.vehicle;
             vehicleId = newVehicle._id;
             this.createAppointment(clientId, vehicleId as string, date, time , description);
@@ -110,7 +109,6 @@ export class AppointmentComponent {
       .createAppointment(clientId, vehicleId, formattedDate , description)
       .subscribe({
         next: (response: any) => {
-          console.log('Rendez-vous créé avec succès', response);
           this.confirmedDate = appointmentDate;
           this.showToast(true);
         },

@@ -46,7 +46,6 @@ export class SignupComponent {
       this.isLoading = true
       this.apiService.sendData({ data: this.data}).subscribe({
         next: (response) => {
-          console.log("Réponse de l'API:", response);
           this.successMessage = 'Crée avec succès!'; // Afficher le message de succès
           this.errorMessage = null;
           this.isLoading = false;
@@ -60,8 +59,6 @@ export class SignupComponent {
           this.router.navigate(['/login']);
         },
         error: (error) =>{
-          
-          console.log('data service',this.data)
           console.error('Erreur', error);
           this.errorMessage = 'Erreur lors de la création. Veuillez vérifier vos informations.';
           this.successMessage = null;

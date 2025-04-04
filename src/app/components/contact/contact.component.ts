@@ -21,13 +21,10 @@ export class ContactComponent {
     if (this.data) {
       this.apiService.sendData({ data: this.data }).subscribe({
         next: (response) => {
-          console.log(this.data)
           this.resetForm();
           this.showToast();
-          console.log("Réponse de l'API:", response);
         },
         error: (error) => {
-          console.log('data service', this.data);
           console.error('Erreur', error);
         },
       });

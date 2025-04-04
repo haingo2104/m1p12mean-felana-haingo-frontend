@@ -26,7 +26,6 @@ export class AddServiceComponent {
         this.service.title = params['title'];
         this.service.description = params['description'];
         this.service._id = params['id'];
-        console.log('Service pré-rempli :', this.service);
       }
     });
   }
@@ -40,7 +39,6 @@ export class AddServiceComponent {
       reader.onload = () => {
         if (typeof reader.result === 'string') {
           this.service.image = reader.result; // Stocker en Base64
-          console.log('Image convertie en Base64:', this.service.image);
         }
       };
       reader.onerror = (error) => {
@@ -57,13 +55,11 @@ export class AddServiceComponent {
         description: this.service.description,
         image: this.service.image, // L'image est déjà en Base64
       };
-      console.log(serviceData);
   
       if (this.service._id) {
         // Mise à jour du service
         this.serviceService.updateService(this.service._id, serviceData).subscribe({
           next: (response) => {
-            console.log('Service mis à jour avec succès', response);
             this.resetForm();
             this.router.navigate(['/services']);
           },
@@ -75,7 +71,6 @@ export class AddServiceComponent {
         // Création d'un nouveau service
         this.serviceService.createService(serviceData).subscribe({
           next: (response) => {
-            console.log('Service créé avec succès', response);
             this.resetForm();
             this.router.navigate(['/services']);
           },

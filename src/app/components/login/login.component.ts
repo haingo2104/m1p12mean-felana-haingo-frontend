@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.route.url.subscribe(urlSegments => {
-      console.log('URL Segments:', urlSegments);
-  
       const roleFromUrl = urlSegments.length > 1 ? urlSegments[1]?.path : 'client';  
   
   
@@ -58,14 +56,12 @@ export class LoginComponent implements OnInit {
       this.isLoading = true
       this.apiService.login({ data: this.data}).subscribe({
         next: (response) => {
-          console.log("Réponse de l'API:", response);
           this.successMessage = 'Connexion réussie!'; // Afficher le message de succès
           this.errorMessage = null;
           this.isLoading = false;
         },
         error: (error) =>{
           
-          console.log('data service',this.data)
           console.error('Erreur', error);
           this.errorMessage = 'Erreur lors de la connexion. Veuillez vérifier vos informations.';
           this.successMessage = null;
