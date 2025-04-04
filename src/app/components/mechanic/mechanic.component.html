@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let repair of repairs" class="fadeInRow text-center">
-          <td>{{ repair.appointmentId?.desciption || 'Aucune description'}}</td>
+          <td>{{ repair.appointmentId?.description || 'Aucune description'}}</td>
           <td>{{ repair.appointmentId?.clientId?.name || 'Inconnu' }}</td>
           <td>{{ repair.appointmentId?.clientId?.email || 'Inconnu' }}</td>
           <td>{{ repair.appointmentId?.vehicleId?.model || 'Non spécifié' }}</td>
